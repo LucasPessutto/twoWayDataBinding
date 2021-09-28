@@ -1,0 +1,48 @@
+<button mat-button (click)="clicar()" color="primary"> {{ nameButton }} </button>
+
+<section>
+  <button mat-button color="primary" [disabled]="!btnEnable">Button 1</button>
+  <button mat-button color="warn" [disabled]="!btnEnable">Button 2</button>
+  <button mat-button (click)="clicou()" color="accent">Desabilitar</button>
+
+  <mat-progress-spinner
+        color="primary"
+
+        value="0">
+    </mat-progress-spinner>
+</section>
+
+<section>
+  <mat-card>
+    <mat-card-content>
+      <p>
+        <mat-checkbox color="warn" (change)="cbChange($event)">Enable / Disable</mat-checkbox>
+      </p>
+      <mat-form-field appearance="fill">
+        <mat-select matNativeControl required [disabled]="selectDisabled"
+        (selectionChange)="selectionChange($event)">
+          <mat-option value="Volvo">Volvo</mat-option>
+          <mat-option value="Saab">Saab</mat-option>
+          <mat-option value="Mercedes">Mercedes</mat-option>
+          <mat-option value="Audi">Audi</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <p>Selected Options {{ selectedOptions }} </p>
+    </mat-card-actions>
+  </mat-card>
+</section>
+
+<section>
+  <mat-card>
+    <mat-card-content>
+      <mat-form-field appearance="legacy">
+        <input matInput placeholder="First Name" (input)="inputEvent" [value]="inputName">
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      Name: {{ inputName }}
+    </mat-card-actions>
+  </mat-card>
+</section>
